@@ -20,7 +20,7 @@ function App() {
   };
 
   function selectNomination() {
-    
+
   }
 
   return (
@@ -41,7 +41,7 @@ function App() {
           <ul>
             {(results != undefined && results.length > 0) ?
               results.map((res) => <SearchItem title={res.Title} year={res.Year} nominated={false}
-                                               onClick={selectNomination} />)
+                                               poster={res.Poster} onClick={selectNomination} />)
               : <p>No results found</p>}
           </ul>
         </div>
