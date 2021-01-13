@@ -54,5 +54,6 @@
 }
 
 .section-title {
-  font-family: Inter-SemiBold
+  font-family: Inter-SemiBold;
+  position: absolute;
 }

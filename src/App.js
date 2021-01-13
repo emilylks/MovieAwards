@@ -3,6 +3,7 @@ import './App.css';
 import Background from './components/Background';
 import MoviePic from './assets/MoviePic.png';
 import SearchBar from './components/SearchBar';
+import SearchItem from './components/SearchItem';
 
 function App() {
   const [input, setInput] = useState('');
@@ -17,6 +18,10 @@ function App() {
     justifyContent: 'center',
     backgroundImage: `url(${MoviePic})`
   };
+
+  function selectNomination() {
+    
+  }
 
   return (
     <div className="App">
@@ -34,7 +39,10 @@ function App() {
         <div className="list-container">
           <p className="section-title">SEARCH RESULTS</p>
           <ul>
-            
+            {(results != undefined && results.length > 0) ?
+              results.map((res) => <SearchItem title={res.Title} year={res.Year} nominated={false}
+                                               onClick={selectNomination} />)
+              : <p>No results found</p>}
           </ul>
         </div>
         <div className="list-container">
