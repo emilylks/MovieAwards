@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './assets/fonts/Inter-ExtraBold.ttf';
+import './assets/fonts/Inter-SemiBold.ttf';
 
 ReactDOM.render(
   <React.StrictMode>
