@@ -9,6 +9,19 @@ function SearchBar(props) {
 
   function readSearch(event) {
     var target = event.target.value;
+    console.log(target);
+    setInput(target);
+    fetch(`http://www.omdbapi.com/?s=${target}&type=movie&apikey=40f4fcc9&`, {
+      method: 'GET'
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res.Search);
+      setResults(res.Search);
+    });
+  }
+
+  function readInput(target) {
     setInput(target);
     fetch(`http://www.omdbapi.com/?s=${target}&type=movie&apikey=40f4fcc9&`, {
       method: 'GET'
@@ -21,9 +34,12 @@ function SearchBar(props) {
   }
 
   return (
-    <form>
-      <input type="text" placeholder="Search movie titles"
-             className="bar-style" onChange={readSearch}/>
+    <form onSubmit={e => { e.preventDefault(); }}>
+      <input type="text"
+             placeholder="Search movie titles"
+             id="bar-style"
+             onChange={readSearch}
+      />
     </form>
   );
 }

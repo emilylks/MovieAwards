@@ -1,14 +1,11 @@
 import React from 'react';
 import './index.css';
 import Button from '@material-ui/core/Button';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 function SearchItem(props) {
-  const title = props.title;
-  const year = props.year;
+  const [title, year, poster] = [props.elem.Title, props.elem.Year, props.elem.Poster];
   const nominated = props.nominated;
-  const selectNomination = props.onClick;
-  const poster = props.poster;
+  const selectNomination = props.clicked;
 
   return (
     <div className="searchitem-container">
@@ -21,7 +18,8 @@ function SearchItem(props) {
           variant="contained"
           color="secondary"
           size="small"
-          style={{height: 40, width: 90, alignSelf: 'center'}}>
+          style={{height: 40, width: 90, alignSelf: 'center'}}
+          onClick={selectNomination}>
           Nominate
         </Button>
       </div>

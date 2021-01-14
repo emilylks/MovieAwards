@@ -1,6 +1,6 @@
-.searchitem-container {
+.nomitem-container {
   height: 90px;
-  width: 480px;
+  width: 400px;
   flex-direction: row;
   display: flex;
   align-items: center;
@@ -23,15 +23,10 @@ img {
     height: 70px
 }
 
-
-.results-content {
+.nom-content {
   flex-direction: row;
   display: flex;
   width: 85%;
   justify-content: space-between;
   margin-left: 8px
-}
-
-.nominate-button {
-  background-color: #EBC0E9
 }
