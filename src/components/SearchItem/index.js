@@ -18,6 +18,7 @@ function SearchItem(props) {
           variant="contained"
           color="secondary"
           size="small"
+          disabled={nominated}
           style={{height: 40, width: 90, alignSelf: 'center'}}
           onClick={selectNomination}>
           Nominate

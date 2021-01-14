@@ -5,6 +5,9 @@ import MoviePic from './assets/MoviePic.png';
 import SearchBar from './components/SearchBar';
 import SearchItem from './components/SearchItem';
 import NominationItem from './components/NominationItem';
+import SearchIcon from '@material-ui/icons/Search';
+import StarIcon from '@material-ui/icons/Star';
+import Swal from 'sweetalert2';
 
 function App() {
   const [input, setInput] = useState('');
@@ -24,12 +27,20 @@ function App() {
   function selectNomination(elem) {
     console.log(elem);
     // add the element to the end of the nominations list
-    setNominations([...nominations, elem]);
+    if (nominations.length < 5)
+      setNominations([...nominations, elem]);
+    else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You can nominate a maximum of 5 movies',
+      });
+    }
   }
 
   function deleteNomination(elem) {
     setNominations(() => {
-      return nominations.filter((e) => e.Title != elem.Title);
+      return nominations.filter((e) => e !== elem);
     });
   }
 
@@ -47,23 +58,29 @@ function App() {
       />
       <div className="main-content">
         <div className="list-container">
-          <p className="section-title">SEARCH RESULTS</p>
-          <ul className="list-container">
+          <div className="list-header">
+            <SearchIcon size="small" />
+            <span className="section-title">SEARCH RESULTS</span>
+          </div>
+          <div className="list-container">
             {(results != undefined && results.length > 0) ?
               results.map((res) => <SearchItem elem={res}
                                                nominated={nominations.includes(res)}
                                                clicked={() => selectNomination(res)} />)
               : <p>No results found</p>}
-          </ul>
+          </div>
         </div>
         <div className="list-container">
-          <p className="section-title">NOMINATIONS</p>
-          <ul className="list-container">
+          <div className="list-header">
+            <StarIcon size="small" />
+            <span className="section-title">NOMINATIONS</span>
+          </div>
+          <div className="list-container">
           {(nominations != undefined && nominations.length > 0) ?
             nominations.map((nom) => <NominationItem elem={nom}
                                                      clicked={() => deleteNomination(nom)}/>)
-            : <p>No nominations yet</p>}
-          </ul>
+            : <p>No nominations yet!</p>}
+          </div>
         </div>
       </div>
     </div>
