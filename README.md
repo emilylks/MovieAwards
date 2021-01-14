@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Welcome to the Shoppies!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application that calls the OMDB API to generate a list of movies that users can search for and nominate. 
 
 ## Available Scripts
 
