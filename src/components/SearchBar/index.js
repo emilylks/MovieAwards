@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css';
 
 function SearchBar(props) {
@@ -11,19 +11,7 @@ function SearchBar(props) {
     var target = event.target.value;
     console.log(target);
     setInput(target);
-    fetch(`http://www.omdbapi.com/?s=${target}&type=movie&apikey=40f4fcc9&`, {
-      method: 'GET'
-    })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res.Search);
-      setResults(res.Search);
-    });
-  }
-
-  function readInput(target) {
-    setInput(target);
-    fetch(`http://www.omdbapi.com/?s=${target}&type=movie&apikey=40f4fcc9&`, {
+    fetch(`https://www.omdbapi.com/?s=${target}&type=movie&apikey=40f4fcc9&`, {
       method: 'GET'
     })
     .then((res) => res.json())

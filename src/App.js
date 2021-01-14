@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import Background from './components/Background';
 import MoviePic from './assets/MoviePic.png';
 import SearchBar from './components/SearchBar';
 import SearchItem from './components/SearchItem';
